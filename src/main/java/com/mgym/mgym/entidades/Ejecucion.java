@@ -1,25 +1,30 @@
 package com.mgym.mgym.entidades;
 
+import java.time.Period;
 import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
 
-import com.mgym.mgym.enumeraciones.Rol;
+import com.mgym.mgym.enumeraciones.EjecucionTipo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Setter
 @Getter
 @NoArgsConstructor
 @Entity
-public class Usuario {
+public class Ejecucion {
     @Id
     @UuidGenerator
-    private UUID usuarioId;
-    private String nombre;
-    private String pass;
-    private Rol rol;
+    private UUID ejecucionId;
+    private UUID ejercicioId;
+    private UUID diaId;
+    private EjecucionTipo tipo;
+    private float peso;
+    private Period tiempo;
+    private int dificultad;
 }

@@ -4,8 +4,6 @@ import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
 
-import com.mgym.mgym.enumeraciones.Rol;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -15,11 +13,10 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Usuario {
+public class Ejercicio {
     @Id
     @UuidGenerator
-    private UUID usuarioId;
+    private UUID ejercicioId;
     private String nombre;
-    private String pass;
-    private Rol rol;
+    private String descripcion;
 }
