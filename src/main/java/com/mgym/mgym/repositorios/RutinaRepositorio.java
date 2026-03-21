@@ -11,6 +11,6 @@ import com.mgym.mgym.entidades.Rutina;
 
 @Repository
 public interface RutinaRepositorio extends JpaRepository<Rutina, UUID>{
-@Query("SELECT l FROM Rutina WHERE l.rutinaId = :rutinaId")
-    public Rutina buscarRutinabyId(@Param("rutinaId") UUID rutinaId);
+    @Query("SELECT l FROM Rutina WHERE l.nombre = :nombre")
+    public Rutina buscarRutinabyNombre(@Param("nombre") UUID nombre);
 }

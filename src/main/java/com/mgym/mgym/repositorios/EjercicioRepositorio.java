@@ -11,6 +11,6 @@ import com.mgym.mgym.entidades.Ejercicio;
 
 @Repository
 public interface EjercicioRepositorio extends JpaRepository<Ejercicio, UUID>{
-@Query("SELECT l FROM Ejercicio WHERE l.ejercicioId = :ejercicioId")
-    public Ejercicio buscarEjerciciobyId(@Param("ejercicioId") UUID ejercicioId);
+    @Query("SELECT l FROM Ejercicio WHERE l.nombre = :nombre")
+    public Ejercicio buscarEjerciciobyNombre(@Param("nombre") String nombre);
 }
