@@ -9,6 +9,7 @@ import com.mgym.mgym.enumeraciones.EjecucionTipo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,7 +22,9 @@ public class Ejecucion {
     @Id
     @UuidGenerator
     private UUID ejecucionId;
+    @ManyToOne
     private UUID ejercicioId;
+    @ManyToOne
     private UUID diaId;
     private EjecucionTipo tipo;
     private float peso;
