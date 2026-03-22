@@ -23,9 +23,9 @@ public class Ejecucion {
     @UuidGenerator
     private UUID ejecucionId;
     @ManyToOne
-    private UUID ejercicioId;
+    private Ejercicio ejercicio;
     @ManyToOne
-    private UUID diaId;
+    private Dia dia;
     private EjecucionTipo tipo;
     private float peso;
     private Period tiempo;

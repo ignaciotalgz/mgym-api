@@ -12,6 +12,6 @@ import com.mgym.mgym.entidades.Dia;
 
 @Repository
 public interface DiaRepositorio extends JpaRepository<Dia, UUID>{
-    @Query("SELECT l FROM Dia WHERE l.dia = :dia")
+    @Query("SELECT l FROM Dia l WHERE l.dia = :dia")
     public Dia buscarDiabyFecha(@Param("dia") Date dia);
 }

@@ -23,7 +23,7 @@ public class Dia {
     @UuidGenerator
     private UUID diaId;
     @ManyToOne
-    private UUID semanaId;
+    private Semana semana;
     private String nombre;
     @Temporal(TemporalType.DATE)
     private Date dia;

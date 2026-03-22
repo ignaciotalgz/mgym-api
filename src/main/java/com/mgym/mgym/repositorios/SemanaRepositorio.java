@@ -12,6 +12,6 @@ import com.mgym.mgym.entidades.Semana;
 
 @Repository
 public interface SemanaRepositorio extends JpaRepository<Semana, UUID>{
-    @Query("SELECT l FROM Rutina WHERE l.nombre = :nombre")
+    @Query("SELECT l FROM Rutina l WHERE l.nombre = :nombre")
     public Rutina buscarRutinabyNombre(@Param("nombre") UUID nombre);
 }

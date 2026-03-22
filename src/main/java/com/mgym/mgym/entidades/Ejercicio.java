@@ -19,4 +19,5 @@ public class Ejercicio {
     private UUID ejercicioId;
     private String nombre;
     private String descripcion;
+    private boolean baja;
 }

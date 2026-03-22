@@ -22,4 +22,5 @@ public class Usuario {
     private String nombre;
     private String pass;
     private Rol rol;
+    private boolean baja;
 }

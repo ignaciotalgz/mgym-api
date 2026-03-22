@@ -20,6 +20,8 @@ public class Rutina {
     @UuidGenerator
     private UUID rutinaId;
     @ManyToOne
-    private UUID usuarioId;
+    private Usuario usuario;
     private String nombre;
+    private boolean actual;
+    private boolean baja;
 }

@@ -20,6 +20,6 @@ public class Semana {
     @UuidGenerator
     private UUID semanaId;
     @ManyToOne
-    private UUID rutinaId;
+    private Rutina rutina;
     private String nombre;
 }

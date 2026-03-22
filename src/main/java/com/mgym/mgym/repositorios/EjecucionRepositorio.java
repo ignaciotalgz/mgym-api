@@ -12,9 +12,9 @@ import com.mgym.mgym.enumeraciones.EjecucionTipo;
 
 @Repository
 public interface EjecucionRepositorio extends JpaRepository<Ejecucion, UUID>{
-    @Query("SELECT l FROM Ejecucion WHERE l.dificultad = :dificultad")
+    @Query("SELECT l FROM Ejecucion l WHERE l.dificultad = :dificultad")
     public Ejecucion buscarEjecucionbyDificultad(@Param("dificultad") int dificultad);
 
-    @Query("SELECT l FROM Ejecucion WHERE l.tipo = :tipo")
+    @Query("SELECT l FROM Ejecucion l WHERE l.tipo = :tipo")
     public Ejecucion buscarEjecucionbyTipo(@Param("tipo") EjecucionTipo tipo);
 }
