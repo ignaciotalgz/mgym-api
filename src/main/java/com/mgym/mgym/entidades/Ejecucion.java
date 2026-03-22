@@ -30,4 +30,6 @@ public class Ejecucion {
     private float peso;
     private Period tiempo;
     private int dificultad;
+    private int repeticionesObjetivo;
+    private int repeticionesLogradas;
 }

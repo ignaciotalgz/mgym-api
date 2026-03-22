@@ -8,10 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mgym.mgym.MyException;
 import com.mgym.mgym.entidades.Dia;
-import com.mgym.mgym.entidades.Rutina;
 import com.mgym.mgym.entidades.Semana;
 import com.mgym.mgym.repositorios.DiaRepositorio;
-import com.mgym.mgym.repositorios.RutinaRepositorio;
 import com.mgym.mgym.repositorios.SemanaRepositorio;
 
 @Service
