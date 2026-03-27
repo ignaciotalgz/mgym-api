@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mgym.mgym.entidades.Rutina;
 import com.mgym.mgym.entidades.Semana;
 import com.mgym.mgym.excepciones.MyException;
+import com.mgym.mgym.modelos.SemanaCreateDTO;
 import com.mgym.mgym.repositorios.RutinaRepositorio;
 import com.mgym.mgym.repositorios.SemanaRepositorio;
 
@@ -30,9 +31,10 @@ public class SemanaServicio {
      * y que no haya otra semana con el mismo nombre en esa rutina.
      */
     @Transactional
-    public void crearSemana(String nombre, UUID rutinaId) throws MyException {
+    public void crearSemana(SemanaCreateDTO semanaCreateDTO) throws MyException {
+        String nombre = semanaCreateDTO.getNombre();
         validarNombre(nombre);
-        Rutina rutina = obtenerRutina(rutinaId);
+        Rutina rutina = obtenerRutina(semanaCreateDTO.getRutinaId());
         if (rutina.isBaja()) {
             throw new MyException("No se puede agregar una semana a una rutina dada de baja");
         }

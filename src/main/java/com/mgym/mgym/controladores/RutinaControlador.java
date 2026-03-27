@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.mgym.mgym.entidades.Rutina;
 import com.mgym.mgym.excepciones.MyException;
+import com.mgym.mgym.modelos.RutinaCreateDTO;
 import com.mgym.mgym.servicios.RutinaServicio;
 
 @RestController
@@ -27,10 +28,9 @@ public class RutinaControlador {
      */
     @PostMapping
     public ResponseEntity<?> crearRutina(
-            @RequestParam String nombre,
-            @RequestParam UUID usuarioId) {
+            @RequestBody RutinaCreateDTO rutinaCreateDTO) {
         try {
-            rutinaServicio.crearRutina(nombre, usuarioId);
+            rutinaServicio.crearRutina(rutinaCreateDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body("Rutina creada correctamente");
         } catch (MyException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mgym.mgym.entidades.Rutina;
 import com.mgym.mgym.entidades.Usuario;
 import com.mgym.mgym.excepciones.MyException;
+import com.mgym.mgym.modelos.RutinaCreateDTO;
 import com.mgym.mgym.repositorios.RutinaRepositorio;
 import com.mgym.mgym.repositorios.UsuarioRepositorio;
 
@@ -29,9 +30,10 @@ public class RutinaServicio {
      * Valida que el usuario no tenga ya una rutina activa con ese nombre.
      */
     @Transactional
-    public void crearRutina(String nombre, UUID usuarioId) throws MyException {
+    public void crearRutina(RutinaCreateDTO rutinaCreateDTO) throws MyException {
+        String nombre = rutinaCreateDTO.getNombre();
         validarNombre(nombre);
-        Usuario usuario = obtenerUsuario(usuarioId);
+        Usuario usuario = obtenerUsuario(rutinaCreateDTO.getUsuarioId());
         if (rutinaRepositorio.existsByUsuarioAndNombreIgnoreCaseAndBajaFalse(usuario, nombre)) {
             throw new MyException("Ya existe una rutina activa con el nombre '" + nombre + "' para este usuario");
         }

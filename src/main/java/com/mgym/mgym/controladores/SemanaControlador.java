@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.mgym.mgym.excepciones.MyException;
+import com.mgym.mgym.modelos.SemanaCreateDTO;
 import com.mgym.mgym.servicios.SemanaServicio;
 
 @RestController
@@ -26,10 +27,9 @@ public class SemanaControlador {
      */
     @PostMapping
     public ResponseEntity<?> crearSemana(
-            @RequestParam String nombre,
-            @RequestParam UUID rutinaId) {
+            @RequestBody SemanaCreateDTO semanaCreateDTO) {
         try {
-            semanaServicio.crearSemana(nombre, rutinaId);
+            semanaServicio.crearSemana(semanaCreateDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body("Semana creada correctamente");
         } catch (MyException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

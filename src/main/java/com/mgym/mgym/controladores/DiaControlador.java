@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.mgym.mgym.excepciones.MyException;
+import com.mgym.mgym.modelos.DiaCreateDTO;
 import com.mgym.mgym.servicios.DiaServicio;
 
 @RestController
@@ -29,10 +30,9 @@ public class DiaControlador {
      */
     @PostMapping
     public ResponseEntity<?> crearDia(
-            @RequestParam String nombre,
-            @RequestParam UUID semanaId) {
+            @RequestBody DiaCreateDTO diaCreateDTO) {
         try {
-            diaServicio.crearDia(nombre, semanaId);
+            diaServicio.crearDia(diaCreateDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body("Dia creado correctamente");
         } catch (MyException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

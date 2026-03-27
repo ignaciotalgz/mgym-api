@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mgym.mgym.entidades.Dia;
 import com.mgym.mgym.entidades.Semana;
 import com.mgym.mgym.excepciones.MyException;
+import com.mgym.mgym.modelos.DiaCreateDTO;
 import com.mgym.mgym.repositorios.DiaRepositorio;
 import com.mgym.mgym.repositorios.SemanaRepositorio;
 
@@ -29,9 +30,10 @@ public class DiaServicio {
      * Valida que no exista ya un día con ese nombre en la misma semana.
      */
     @Transactional
-    public void crearDia(String nombre, UUID semanaId) throws MyException {
+    public void crearDia(DiaCreateDTO diaCreateDTO) throws MyException {
+        String nombre = diaCreateDTO.getNombre();
         validarNombre(nombre);
-        Semana semana = obtenerSemana(semanaId);
+        Semana semana = obtenerSemana(diaCreateDTO.getSemanaId());
         if (diaRepositorio.existsBySemanaAndNombreIgnoreCase(semana, nombre)) {
             throw new MyException("Ya existe un día con el nombre '" + nombre + "' en esta semana");
         }
